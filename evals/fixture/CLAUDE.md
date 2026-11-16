@@ -13,6 +13,7 @@ Small portfolio site for a creative studio: projects, 3D previews, photo gallery
 - Code identifiers, comments and commit messages: English.
 
 ## Commands
+This project uses **npm** (`package-lock.json`). Do not use pnpm or yarn here.
 - Install: `npm ci`
 - Dev server: `npm run dev` (http://localhost:3000)
 - Lint: `npm run lint`
