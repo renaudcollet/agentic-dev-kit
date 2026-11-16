@@ -82,7 +82,7 @@ Le script :
 - ajoute les fichiers absents et met à jour ceux qui n'ont pas été modifiés dans le projet ;
 - **ne remplace jamais un fichier adapté localement** (il le signale ; `-Force` pour l'écraser quand même) ;
 - ignore les chemins listés dans `.claude/.kit-ignore` du projet (un chemin par ligne, par exemple `skills/responsive`) ;
-- note la version synchronisée dans `.claude/.kit-sync.json`.
+- note la version synchronisée dans `.claude/.kit-sync.json`, avec une empreinte (hash) de chaque fichier copié. À la synchronisation suivante, un fichier qui ne correspond plus à son empreinte a été adapté dans le projet et il est conservé. Committer ce fichier avec `.claude/` et ne pas le modifier à la main : sans lui, tout fichier qui diffère du kit est considéré comme adapté et n'est plus mis à jour sans `-Force`.
 
 **Nouveau projet** : le dossier cible doit déjà exister. Créer d'abord le projet (par exemple `pnpm create nuxt mon-projet`), lancer `sync.ps1` dessus, puis `/project-setup` dans Claude Code pour mettre en place le lint, les tests unitaires, la CI et le `CLAUDE.md` du projet.
 
