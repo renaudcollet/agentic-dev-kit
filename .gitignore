@@ -13,3 +13,6 @@ desktop.ini
 # Misc
 node_modules/
 *.log
+
+# Serena MCP local state
+.serena/
