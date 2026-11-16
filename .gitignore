@@ -1,0 +1,11 @@
+# Réglages locaux de Claude Code
+.claude/settings.local.json
+
+# Systèmes
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Divers
+node_modules/
+*.log
