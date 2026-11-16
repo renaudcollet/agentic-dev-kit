@@ -84,6 +84,10 @@ Le script :
 - ignore les chemins listés dans `.claude/.kit-ignore` du projet (un chemin par ligne, par exemple `skills/responsive`) ;
 - note la version synchronisée dans `.claude/.kit-sync.json`.
 
+**Nouveau projet** : le dossier cible doit déjà exister. Créer d'abord le projet (par exemple `pnpm create nuxt mon-projet`), lancer `sync.ps1` dessus, puis `/project-setup` dans Claude Code pour mettre en place le lint, les tests unitaires, la CI et le `CLAUDE.md` du projet.
+
+**Projet existant** : commencer par `-DryRun` pour voir les fichiers qui seraient ajoutés et ceux qui entrent en conflit avec un dossier `.claude/` déjà présent.
+
 Une amélioration faite dans un projet et utile ailleurs se reporte ici, dans le kit.
 
 Sur un dépôt d'agence ou de client, demander avant de committer le dossier `.claude/`. Garder `.claude/settings.local.json` hors du dépôt.
