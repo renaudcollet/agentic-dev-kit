@@ -30,6 +30,7 @@ Never "simplify" a documented exception unless asked.
 - `map`, `filter`, `reduce` when clearer than a loop, and the other way round otherwise.
 - Vue: local state until it is shared, `computed` rather than a `watch` that copies a value, components split when they become hard to read, not on principle.
 - One function does one thing, at a single level of abstraction.
+- Invisible or ambiguous characters (non-breaking spaces, zero-width characters, look-alike quotes) written as escapes (`\u00A0`, `\u202F`) in code and tests, never as raw characters.
 
 ## The test
 For every added element: "If I delete it, what breaks or becomes less clear?" If the answer is "nothing", delete it.
