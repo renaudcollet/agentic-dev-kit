@@ -18,7 +18,7 @@ Ask nothing if the arguments are clear; otherwise ask once, grouped.
 ## Before starting
 - Check that `claude` (Claude Code CLI) and `node` are available, and that no dev server is already running on port 3000.
 - Estimate and announce the cost: tasks × modes × runs agent sessions, plus one grading per run. Wait for approval if more than 12 sessions.
-- Note: personal settings in `~/.claude/` apply to every run. For a clean `without-kit` comparison, the kit must not be installed globally.
+- Note: personal settings in `~/.claude/` apply to every run. For a clean `without-kit` comparison, the kit must not be installed globally. If a personal rule conflicts with the fixture (for example a package manager other than npm), mention it in the results: it is part of what is being measured.
 
 ## For each task, mode and run
 1. **Reset**: `node evals/scripts/reset-work.mjs --task <id> --mode <mode>`
@@ -33,7 +33,7 @@ Ask nothing if the arguments are clear; otherwise ask once, grouped.
    - `final-message.md`: the `result` field of `.eval-run.json`
    - `checks.json`: copy of `evals/work/.eval-checks.json`
    - `meta.json`: task, mode, run number, model, duration and cost if reported in `.eval-run.json`
-5. **Grade**: call the `eval-grader` subagent with the paths of the task's `rubric.md` and `task.json` and the run folder. Do not tell it the mode. Save its answer as `grade.md` in the run folder.
+5. **Grade**: call the `eval-grader` subagent with the paths of the task's `rubric.md` and `task.json` and the run folder, **and nothing else**: no mode, no summary of the checks, no interpretation of the results. Your own reading may be wrong, and the grader must judge from the files. Save its answer as `grade.md` in the run folder.
 
 Run sequentially: all runs share `evals/work` and port 3000.
 
