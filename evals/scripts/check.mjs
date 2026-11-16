@@ -90,7 +90,13 @@ if (!flag('skip-commands')) {
         add(c.name, 'command', true, 'no matching changed file')
         continue
       }
-      cmd = `${c.run} ${files.map(f => `"${f}"`).join(' ')}`
+      // File names come from the agent and end up in a shell command: allow only characters no shell interprets
+      const unsafe = files.filter(f => /[^\w./@()[\]+-]/.test(f))
+      if (unsafe.length) {
+        add(c.name, 'command', false, `unsafe file name(s), not run: ${unsafe.join(', ')}`)
+        continue
+      }
+      cmd = `${c.run} ${files.map(f => `"./${f}"`).join(' ')}`
     }
     try {
       const out = sh(cmd)
