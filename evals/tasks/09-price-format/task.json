@@ -1,0 +1,38 @@
+{
+  "id": "09-price-format",
+  "title": "Price formatting utility",
+  "skills": [
+    "code-simplicity"
+  ],
+  "prompt": "Ajoute une fonction utilitaire pour formater un prix en euros : par exemple 1234.5 doit donner « 1 234,50 € ».",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    },
+    {
+      "name": "unit tests",
+      "run": "npm run test"
+    }
+  ],
+  "grep": [
+    {
+      "id": "intl",
+      "desc": "Uses Intl.NumberFormat",
+      "path": "\\.ts$",
+      "must": "Intl\\.NumberFormat"
+    },
+    {
+      "id": "unit-test",
+      "desc": "Adds a unit test",
+      "path": "^tests/unit/.*\\.test\\.ts$",
+      "must": "describe|it\\(|test\\("
+    }
+  ],
+  "noNewDeps": true,
+  "noNewCommit": true
+}

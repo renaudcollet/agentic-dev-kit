@@ -30,6 +30,7 @@
 - New business logic or utility functions come with unit tests.
 - Any user journey created or changed is covered by an e2e test (`e2e-tests` skill).
 - Do not add a dependency without saying so.
+- When a specific library API or config format matters, check the current documentation (Context7 if available) instead of relying on memory.
 - Commit messages follow Conventional Commits (`conventional-commits` skill). Do not commit without approval.
 
 ## Project conventions

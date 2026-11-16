@@ -1,0 +1,40 @@
+{
+  "id": "07-faq-animation",
+  "title": "GSAP animation of the FAQ",
+  "skills": [
+    "performance-memory",
+    "accessibility"
+  ],
+  "prompt": "Anime l'ouverture et la fermeture des réponses de la FAQ avec GSAP.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "gsap-context",
+      "desc": "Uses gsap.context() or gsap.matchMedia()",
+      "path": "\\.vue$",
+      "must": "gsap\\.(context|matchMedia)\\("
+    },
+    {
+      "id": "revert",
+      "desc": "Reverts the context on unmount",
+      "path": "\\.vue$",
+      "must": "\\.revert\\(\\)"
+    },
+    {
+      "id": "reduced-motion",
+      "desc": "Handles reduced motion",
+      "path": "\\.vue$",
+      "must": "reduce"
+    }
+  ],
+  "noNewCommit": true
+}

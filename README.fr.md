@@ -43,6 +43,12 @@ Les skills n'ont pas de modèle imposé : elles utilisent celui de la session.
 
 Les sous-agents diagnostiquent ; l'agent principal corrige, après validation.
 
+### Maintenance du kit (utilisés dans ce dépôt uniquement, jamais copiés dans les projets)
+| Élément | Rôle |
+|---|---|
+| skill `run-evals` | `/run-evals` : lance la suite d'évaluations et produit un tableau de résultats |
+| sous-agent `eval-grader` | note chaque essai d'évaluation selon sa grille (`opus`) |
+
 ## Principes
 
 - **Skills pour le savoir-faire, sous-agents pour la vérification indépendante** ou les tâches qui produisent beaucoup de bruit (logs, traces, captures). Pas un sous-agent par type de problème.
@@ -99,11 +105,26 @@ Sous Windows, si `npx` n'est pas trouvé, remplacer `"command": "npx"` par `"com
 
 Si les noms d'outils du MCP Playwright diffèrent, ajuster la ligne `tools:` de `.claude/agents/reviewer.md`.
 
-## Faire évoluer le kit
+## Évaluations
 
+`evals/` contient 12 tâches de référence sur un petit projet Nuxt (modale accessible, validation de formulaire, HTML non fiable, route d'upload, RLS Supabase, cycle de vie Three.js, animation GSAP, grande galerie, fonction utilitaire, découpage de commits, test e2e, exception documentée). Chaque essai est vérifié par des scripts, noté selon une grille oui/non par un agent séparé, et quelques points restent à contrôler à l'œil. Voir [evals/README.md](evals/README.md).
+
+```
+/run-evals            toutes les tâches, avec le kit
+/run-evals both       avec et sans le kit, pour mesurer ce qu'il apporte
+```
+
+## Maintenance
+
+Le kit est fait pour évoluer. Le revoir :
+- **à chaque nouvelle génération de modèle** : lancer `/run-evals both`. Les règles que le modèle applique désormais de lui-même consomment du contexte pour rien : les retirer. Réévaluer le modèle des sous-agents ;
+- **après une modification importante** d'une skill ou d'un sous-agent : lancer les tâches concernées, deux fois ;
+- **tous les six mois** sinon : vérifier les détails liés aux versions (formats de config, API de bibliothèques, commandes MCP, champs d'en-tête de Claude Code) avec la documentation à jour.
+
+Principes :
 - Ajouter une règle quand un même problème revient dans les rapports du relecteur ; retirer celles qui ne servent jamais.
 - Ne pas expliquer ce que l'agent sait déjà : des règles courtes et impératives, pas de théorie.
-- Pour juger un changement : quelques tâches types, comparer avant et après, changer une chose à la fois.
+- Changer une chose à la fois et comparer les résultats avant et après.
 - Noter chaque évolution dans `CHANGELOG.md`, avec des Conventional Commits.
 
 ## Licence

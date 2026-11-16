@@ -3,8 +3,8 @@
   Copies or updates the kit (.claude/) in a project, without overwriting locally adapted files.
 
 .EXAMPLE
-  .\scripts\sync.ps1 -Target "D:\_FREELANCE\2026-11_agence_client" -DryRun
-  .\scripts\sync.ps1 -Target "D:\_FREELANCE\2026-11_agence_client"
+  .\scripts\sync.ps1 -Target "D:\projects\my-project" -DryRun
+  .\scripts\sync.ps1 -Target "D:\projects\my-project"
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Target,
@@ -26,6 +26,9 @@ if (-not (Test-Path $source)) { throw "No .claude folder found in the kit: $sour
 $kitVersion = $null
 try { $kitVersion = (git -C $kitRoot rev-parse --short HEAD 2>$null) } catch {}
 if (-not $kitVersion) { $kitVersion = 'no-git' }
+
+# Kit files used only to run evaluations, never copied into a project
+$kitInternal = @('skills/run-evals', 'agents/eval-grader')
 
 # Paths ignored by the project
 $ignored = @()
@@ -61,6 +64,8 @@ Get-ChildItem -Path $source -Recurse -File | Sort-Object FullName | ForEach-Obje
   $rel = $_.FullName.Substring($source.Length).TrimStart('\', '/') -replace '\\', '/'
   $dest = Join-Path $destRoot $rel
   $srcHash = Get-Hash $_.FullName
+
+  if ($kitInternal | Where-Object { $rel -eq $_ -or $rel.StartsWith("$_/") }) { return }
 
   if (Test-Ignored $rel) {
     Write-Host "  skipped     $rel" -ForegroundColor DarkGray

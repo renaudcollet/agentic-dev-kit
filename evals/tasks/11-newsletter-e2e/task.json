@@ -1,0 +1,41 @@
+{
+  "id": "11-newsletter-e2e",
+  "title": "E2E test for the newsletter journey",
+  "skills": [
+    "e2e-tests"
+  ],
+  "prompt": "Écris le test e2e du parcours d'inscription à la newsletter, avec le cas valide et le cas d'erreur.",
+  "commands": [
+    {
+      "name": "e2e tests",
+      "run": "npx playwright test --reporter=line"
+    }
+  ],
+  "grep": [
+    {
+      "id": "no-timeout",
+      "desc": "No waitForTimeout",
+      "path": "^tests/e2e/.*\\.ts$",
+      "mustNot": "waitForTimeout"
+    },
+    {
+      "id": "role-selectors",
+      "desc": "Uses role or label selectors",
+      "path": "^tests/e2e/.*\\.ts$",
+      "must": "getByRole|getByLabel"
+    },
+    {
+      "id": "no-css-selectors",
+      "desc": "No CSS class or id selectors",
+      "path": "^tests/e2e/.*\\.ts$",
+      "mustNot": "locator\\(\\s*['\"`][.#]"
+    },
+    {
+      "id": "web-first",
+      "desc": "Uses web-first assertions",
+      "path": "^tests/e2e/.*\\.ts$",
+      "must": "toBeVisible|toHaveText|toContainText"
+    }
+  ],
+  "noNewCommit": true
+}

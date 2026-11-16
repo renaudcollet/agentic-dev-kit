@@ -1,0 +1,35 @@
+{
+  "id": "01-confirm-modal",
+  "title": "Confirmation modal before deleting a project",
+  "skills": [
+    "accessibility",
+    "code-simplicity"
+  ],
+  "prompt": "Dans la liste des projets, ajoute une confirmation avant la suppression d'un projet : une modale qui demande de confirmer ou d'annuler.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "dialog-element",
+      "desc": "Uses a native <dialog> or role=\"dialog\"",
+      "path": "\\.vue$",
+      "must": "<dialog|role=[\"']dialog[\"']"
+    },
+    {
+      "id": "no-native-confirm",
+      "desc": "Does not use window.confirm()",
+      "path": "\\.(vue|ts)$",
+      "mustNot": "\\bconfirm\\s*\\("
+    }
+  ],
+  "e2e": "eval.spec.ts",
+  "noNewCommit": true
+}

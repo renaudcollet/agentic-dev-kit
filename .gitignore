@@ -1,11 +1,15 @@
-# Réglages locaux de Claude Code
+# Claude Code local settings
 .claude/settings.local.json
 
-# Systèmes
+# Evaluations: working copy and per-run details
+evals/work/
+evals/runs/
+
+# OS
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Divers
+# Misc
 node_modules/
 *.log

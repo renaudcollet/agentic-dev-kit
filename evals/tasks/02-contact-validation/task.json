@@ -1,0 +1,40 @@
+{
+  "id": "02-contact-validation",
+  "title": "Contact form validation",
+  "skills": [
+    "accessibility"
+  ],
+  "prompt": "Ajoute la validation du formulaire de contact : tous les champs sont obligatoires et l'e-mail doit être valide. Affiche des messages d'erreur clairs.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "aria-invalid",
+      "desc": "Invalid fields get aria-invalid",
+      "path": "\\.vue$",
+      "must": "aria-invalid"
+    },
+    {
+      "id": "aria-describedby",
+      "desc": "Error messages linked with aria-describedby",
+      "path": "\\.vue$",
+      "must": "aria-describedby"
+    },
+    {
+      "id": "no-alert",
+      "desc": "No alert() for errors",
+      "path": "\\.(vue|ts)$",
+      "mustNot": "\\balert\\s*\\("
+    }
+  ],
+  "e2e": "eval.spec.ts",
+  "noNewCommit": true
+}

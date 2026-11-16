@@ -1,0 +1,52 @@
+{
+  "id": "06-glb-viewer",
+  "title": "Three.js GLB viewer on the project page",
+  "skills": [
+    "performance-memory",
+    "accessibility"
+  ],
+  "prompt": "Sur la page d'un projet, si le projet a un modèle 3D, affiche-le dans une petite scène Three.js qui tourne lentement.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "dispose",
+      "desc": "Disposes resources",
+      "path": "\\.(vue|ts)$",
+      "must": "\\.dispose\\("
+    },
+    {
+      "id": "unmount",
+      "desc": "Cleans up on unmount",
+      "path": "\\.(vue|ts)$",
+      "must": "onBeforeUnmount|onUnmounted"
+    },
+    {
+      "id": "stop-loop",
+      "desc": "Stops the render loop",
+      "path": "\\.(vue|ts)$",
+      "must": "cancelAnimationFrame|setAnimationLoop\\(\\s*null"
+    },
+    {
+      "id": "pixel-ratio",
+      "desc": "Caps the pixel ratio",
+      "path": "\\.(vue|ts)$",
+      "must": "setPixelRatio\\(\\s*Math\\.min"
+    },
+    {
+      "id": "no-deep-ref",
+      "desc": "No Three.js object in a deep ref",
+      "path": "\\.(vue|ts)$",
+      "mustNot": "\\bref\\(\\s*new\\s+(THREE\\.)?(Scene|WebGLRenderer|PerspectiveCamera|Mesh)"
+    }
+  ],
+  "noNewCommit": true
+}

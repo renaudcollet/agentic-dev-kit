@@ -43,6 +43,12 @@ Skills have no fixed model: they use the session's model.
 
 Subagents diagnose; the main agent fixes, after the developer's approval.
 
+### Kit maintenance (used in this repository only, never copied into projects)
+| Item | Role |
+|---|---|
+| `run-evals` skill | `/run-evals`: runs the evaluation suite and writes a results table |
+| `eval-grader` subagent | grades each evaluation run against its rubric (`opus`) |
+
 ## Principles
 
 - **Skills for know-how, subagents for independent verification** or for noisy tasks (logs, traces, screenshots). Not one subagent per problem type.
@@ -99,11 +105,26 @@ On Windows, if `npx` is not found, replace `"command": "npx"` with `"command": "
 
 If the Playwright MCP tool names differ, adjust the `tools:` line in `.claude/agents/reviewer.md`.
 
-## Evolving the kit
+## Evaluations
 
+`evals/` holds 12 reference tasks on a small Nuxt project (accessible modal, form validation, untrusted HTML, upload route, Supabase RLS, Three.js lifecycle, GSAP animation, large gallery, utility function, commit split, e2e test, documented exception). Each run is checked by scripts, graded against a yes/no rubric by a separate agent, and a few items are left for a human check. See [evals/README.md](evals/README.md).
+
+```
+/run-evals            all tasks, with the kit
+/run-evals both       with and without the kit, to measure what it brings
+```
+
+## Maintenance
+
+The kit is meant to evolve. Review it:
+- **at each new model generation**: run `/run-evals both`. Rules the model now follows on its own cost context for nothing: remove them. Reconsider the subagents' models;
+- **after a significant change** to a skill or subagent: run the related tasks, twice;
+- **every six months** otherwise: check the version-sensitive details (config formats, library APIs, MCP commands, Claude Code frontmatter fields) against current documentation.
+
+Guidelines:
 - Add a rule when the same issue keeps showing up in the reviewer's reports; remove rules that never fire.
 - Don't explain what the agent already knows: short, imperative rules, no theory.
-- To judge a change: a few typical tasks, compare before and after, change one thing at a time.
+- Change one thing at a time and compare results before and after.
 - Log every change in `CHANGELOG.md`, with Conventional Commits.
 
 ## License

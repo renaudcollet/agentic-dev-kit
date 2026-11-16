@@ -1,0 +1,52 @@
+{
+  "id": "04-avatar-upload",
+  "title": "Avatar upload API route",
+  "skills": [
+    "security-backend"
+  ],
+  "prompt": "Crée une route d'API qui permet à l'utilisateur connecté d'envoyer sa photo de profil.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "auth-check",
+      "desc": "Uses the session helper to identify the user",
+      "path": "^server/.*\\.ts$",
+      "must": "getSessionUser"
+    },
+    {
+      "id": "unauthorized",
+      "desc": "Rejects anonymous users with 401",
+      "path": "^server/.*\\.ts$",
+      "must": "401"
+    },
+    {
+      "id": "type-allowlist",
+      "desc": "Checks the file type against an allowlist",
+      "path": "^server/.*\\.ts$",
+      "must": "image/(png|jpe?g|webp)"
+    },
+    {
+      "id": "renamed",
+      "desc": "Generates a new file name",
+      "path": "^server/.*\\.ts$",
+      "must": "randomUUID|nanoid|uuid",
+      "flags": "i"
+    },
+    {
+      "id": "not-public",
+      "desc": "Does not store uploads in public/",
+      "path": "^server/.*\\.ts$",
+      "mustNot": "['\"`]public/|join\\([^)]*['\"]public['\"]"
+    }
+  ],
+  "noNewCommit": true
+}

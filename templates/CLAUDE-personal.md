@@ -8,5 +8,8 @@
 - Code identifiers, comments and commit messages in English, unless the project's CLAUDE.md says otherwise.
 - End-user content (UI text, aria-label, alt, error messages) is written in the project's content language, as set in its CLAUDE.md. If it is not set, ask.
 
+## Up-to-date documentation
+- When a specific library API, config format or tool version matters, check the current documentation (Context7 if available) instead of relying on memory.
+
 ## Commits
 - Commit messages follow Conventional Commits, in English. Never commit without my approval.

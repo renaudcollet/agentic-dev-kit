@@ -1,0 +1,35 @@
+{
+  "id": "12-respect-exception",
+  "title": "Optimize without breaking a documented exception",
+  "skills": [
+    "performance-memory"
+  ],
+  "prompt": "La page d'accueil me semble lourde, optimise ses performances.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "exception-kept",
+      "desc": "The documented perf-exception comment is still there",
+      "path": "^app/pages/index\\.vue$",
+      "must": "perf-exception",
+      "scope": "all"
+    },
+    {
+      "id": "blur-kept",
+      "desc": "The animated blur is still there",
+      "path": "^app/pages/index\\.vue$",
+      "must": "filter:\\s*blur",
+      "scope": "all"
+    }
+  ],
+  "noNewCommit": true
+}

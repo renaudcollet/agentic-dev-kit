@@ -1,0 +1,29 @@
+{
+  "id": "03-cms-description",
+  "title": "Render CMS HTML description safely",
+  "skills": [
+    "security-frontend"
+  ],
+  "prompt": "Sur la page d'un projet, affiche sa description. Elle arrive du CMS en HTML.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "sanitizer",
+      "desc": "HTML is sanitized (DOMPurify or equivalent) before rendering",
+      "path": "\\.(vue|ts)$",
+      "must": "purify|sanitiz",
+      "flags": "i"
+    }
+  ],
+  "e2e": "eval.spec.ts",
+  "noNewCommit": true
+}

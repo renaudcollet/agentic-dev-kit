@@ -1,0 +1,29 @@
+{
+  "id": "08-photo-gallery",
+  "title": "Display 5000 photos",
+  "skills": [
+    "performance-memory"
+  ],
+  "prompt": "La page Photos doit afficher les 5000 photos, pas seulement les 20 premières.",
+  "commands": [
+    {
+      "name": "lint",
+      "run": "npm run lint"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "strategy",
+      "desc": "Uses virtualization, pagination or batch loading",
+      "path": "\\.(vue|ts)$",
+      "must": "virtual|IntersectionObserver|useInfiniteScroll|page|limit|offset|batch",
+      "flags": "i"
+    }
+  ],
+  "e2e": "eval.spec.ts",
+  "noNewCommit": true
+}

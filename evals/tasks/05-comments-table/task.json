@@ -1,0 +1,52 @@
+{
+  "id": "05-comments-table",
+  "title": "Supabase comments table with RLS",
+  "skills": [
+    "security-backend"
+  ],
+  "prompt": "Ajoute une table de commentaires sur les projets dans Supabase : un utilisateur connecté peut commenter, modifier et supprimer ses propres commentaires, et tout le monde peut les lire.",
+  "commands": [],
+  "grep": [
+    {
+      "id": "rls",
+      "desc": "Row level security enabled",
+      "path": "^supabase/migrations/(?!20261116000000_init).*\\.sql$",
+      "must": "enable row level security",
+      "flags": "i"
+    },
+    {
+      "id": "insert-policy",
+      "desc": "Insert policy",
+      "path": "^supabase/migrations/(?!20261116000000_init).*\\.sql$",
+      "must": "for insert",
+      "flags": "i"
+    },
+    {
+      "id": "update-policy",
+      "desc": "Update policy",
+      "path": "^supabase/migrations/(?!20261116000000_init).*\\.sql$",
+      "must": "for update",
+      "flags": "i"
+    },
+    {
+      "id": "delete-policy",
+      "desc": "Delete policy",
+      "path": "^supabase/migrations/(?!20261116000000_init).*\\.sql$",
+      "must": "for delete",
+      "flags": "i"
+    },
+    {
+      "id": "auth-uid",
+      "desc": "Policies based on auth.uid()",
+      "path": "^supabase/migrations/(?!20261116000000_init).*\\.sql$",
+      "must": "auth\\.uid\\(\\)"
+    },
+    {
+      "id": "init-untouched",
+      "desc": "Existing migration not edited",
+      "path": "20261116000000_init\\.sql$",
+      "mustNotChange": true
+    }
+  ],
+  "noNewCommit": true
+}

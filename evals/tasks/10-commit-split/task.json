@@ -1,0 +1,12 @@
+{
+  "id": "10-commit-split",
+  "title": "Propose commits for mixed changes",
+  "skills": [
+    "conventional-commits"
+  ],
+  "prompt": "J'ai terminé ces modifications. Propose-moi le ou les commits à faire, sans commiter.",
+  "overlay": "setup",
+  "commands": [],
+  "grep": [],
+  "noNewCommit": true
+}
