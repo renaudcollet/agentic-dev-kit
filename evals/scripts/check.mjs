@@ -81,8 +81,19 @@ if (task.noNewDeps) add('no-new-deps', 'deps', addedDeps.length === 0, addedDeps
 // 4. Commands (lint, typecheck, tests)
 if (!flag('skip-commands')) {
   for (const c of task.commands ?? []) {
+    let cmd = c.run
+    // Run on the files changed by the agent only, so errors already present in the fixture do not hide new ones
+    if (c.changedFiles) {
+      const re = new RegExp(c.changedFiles)
+      const files = uniqueChanged.filter(f => re.test(f) && existsSync(join(workDir, f)))
+      if (!files.length) {
+        add(c.name, 'command', true, 'no matching changed file')
+        continue
+      }
+      cmd = `${c.run} ${files.map(f => `"${f}"`).join(' ')}`
+    }
     try {
-      const out = sh(c.run)
+      const out = sh(cmd)
       add(c.name, 'command', true, tail(out, 5))
     }
     catch (e) {

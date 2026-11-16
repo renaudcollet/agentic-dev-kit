@@ -88,6 +88,7 @@ node evals/scripts/check.mjs --task 01-confirm-modal
 | Field | Effect |
 |---|---|
 | `commands` | commands run in the working copy; pass if exit code 0 |
+| `commands[].changedFiles` | regex: the command only runs on the changed files that match (used for lint, so errors already in the fixture do not hide new ones) |
 | `grep[].must` / `mustNot` | regex searched in the files matching `path` (changed files only, or every file with `"scope": "all"`) |
 | `grep[].mustNotChange` | the files matching `path` must not be modified |
 | `e2e` | Playwright spec copied into `tests/e2e/__eval__/` and run |

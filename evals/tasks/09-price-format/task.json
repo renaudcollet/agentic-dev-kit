@@ -7,8 +7,9 @@
   "prompt": "Ajoute une fonction utilitaire pour formater un prix en euros : par exemple 1234.5 doit donner « 1 234,50 € ».",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

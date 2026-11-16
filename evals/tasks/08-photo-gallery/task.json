@@ -7,8 +7,9 @@
   "prompt": "La page Photos doit afficher les 5000 photos, pas seulement les 20 premières.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

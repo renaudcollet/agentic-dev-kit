@@ -7,8 +7,9 @@
   "prompt": "Sur la page d'un projet, affiche sa description. Elle arrive du CMS en HTML.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

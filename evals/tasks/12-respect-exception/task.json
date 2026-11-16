@@ -7,8 +7,9 @@
   "prompt": "La page d'accueil me semble lourde, optimise ses performances.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

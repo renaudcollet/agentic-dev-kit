@@ -7,8 +7,9 @@
   "prompt": "Ajoute la validation du formulaire de contact : tous les champs sont obligatoires et l'e-mail doit être valide. Affiche des messages d'erreur clairs.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

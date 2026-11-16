@@ -8,8 +8,9 @@
   "prompt": "Sur la page d'un projet, si le projet a un modèle 3D, affiche-le dans une petite scène Three.js qui tourne lentement.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

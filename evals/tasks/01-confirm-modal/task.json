@@ -8,8 +8,9 @@
   "prompt": "Dans la liste des projets, ajoute une confirmation avant la suppression d'un projet : une modale qui demande de confirmer ou d'annuler.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

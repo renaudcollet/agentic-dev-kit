@@ -8,8 +8,9 @@
   "prompt": "Anime l'ouverture et la fermeture des réponses de la FAQ avec GSAP.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",

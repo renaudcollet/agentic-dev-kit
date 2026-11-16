@@ -7,8 +7,9 @@
   "prompt": "Crée une route d'API qui permet à l'utilisateur connecté d'envoyer sa photo de profil.",
   "commands": [
     {
-      "name": "lint",
-      "run": "npm run lint"
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
     },
     {
       "name": "typecheck",
