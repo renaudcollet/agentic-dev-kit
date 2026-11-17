@@ -20,7 +20,7 @@ It does **not** hold tool configuration files (ESLint, tsconfig, CI workflows): 
 |---|---|
 | `accessibility` | writes or edits an interactive element, a form, a modal |
 | `security-frontend` | renders external content, handles client-side auth, adds a dependency |
-| `security-backend` | writes an API route, a query, an RLS policy, an upload |
+| `security-backend` | writes an API route, a query, an RLS policy, an upload, an AI feature, stores personal data |
 | `code-simplicity` | writes, refactors or reviews code |
 | `responsive` | writes CSS or layout |
 | `performance-memory` | writes a WebGL scene, a GSAP animation, Canvas, Phaser or WebAR code, a long list, asset loading |
@@ -41,7 +41,7 @@ Manual skills never trigger on their own.
 ### Subagents: separate context, return only a conclusion
 | Agent | Role | Model |
 |---|---|---|
-| `reviewer` | independent read-only review on every axis before a commit or PR, including any weakened quality bar (suppressions, skipped tests, lowered thresholds), with a proposed commit message | `opus` |
+| `reviewer` | independent read-only review on every axis before a commit or PR, checking that the change does what was asked and including any weakened quality bar (suppressions, skipped tests, lowered thresholds), with a proposed commit message | `opus` |
 | `perf-profiler` | in-browser measurements (traces, heap, fps, draw calls), leak hunting, quantified diagnosis | `opus` |
 | `e2e-runner` | runs e2e tests, diagnoses failures, keeps logs out of the conversation | `sonnet` |
 

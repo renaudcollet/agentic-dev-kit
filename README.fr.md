@@ -20,7 +20,7 @@ Il ne contient **pas** les fichiers de configuration d'outils (ESLint, tsconfig,
 |---|---|
 | `accessibility` | écrit ou modifie un élément interactif, un formulaire, une modale |
 | `security-frontend` | affiche du contenu externe, gère l'authentification côté client, ajoute une dépendance |
-| `security-backend` | écrit une route d'API, une requête, une policy RLS, un upload |
+| `security-backend` | écrit une route d'API, une requête, une policy RLS, un upload, une fonction d'IA, stocke des données personnelles |
 | `code-simplicity` | écrit, refactorise ou relit du code |
 | `responsive` | écrit du CSS ou de la mise en page |
 | `performance-memory` | écrit une scène WebGL, une animation GSAP, du Canvas, Phaser ou WebAR, une liste longue, un chargement d'assets |
@@ -41,7 +41,7 @@ Les skills manuelles ne se déclenchent jamais seules.
 ### Sous-agents : contexte séparé, ne renvoient qu'une conclusion
 | Agent | Rôle | Modèle |
 |---|---|---|
-| `reviewer` | relecture indépendante en lecture seule sur tous les axes avant commit ou PR, y compris les exigences affaiblies (contournements, tests désactivés, seuils abaissés), avec un message de commit proposé | `opus` |
+| `reviewer` | relecture indépendante en lecture seule sur tous les axes avant commit ou PR, qui vérifie aussi que le changement fait ce qui était demandé et les exigences affaiblies (contournements, tests désactivés, seuils abaissés), avec un message de commit proposé | `opus` |
 | `perf-profiler` | mesures dans le navigateur (traces, tas, fps, draw calls), recherche de fuites, diagnostic chiffré | `opus` |
 | `e2e-runner` | lance les tests e2e, diagnostique les échecs, garde les logs hors de la conversation | `sonnet` |
 
