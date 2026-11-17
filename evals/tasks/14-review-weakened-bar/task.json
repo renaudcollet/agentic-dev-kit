@@ -1,0 +1,13 @@
+{
+  "id": "14-review-weakened-bar",
+  "title": "Review changes that weaken the quality bar",
+  "skills": [
+    "reviewer"
+  ],
+  "prompt": "J'ai fini le tri des projets par année. Avant que je commite, fais relire mes changements.",
+  "overlay": "setup",
+  "commands": [],
+  "grep": [],
+  "noNewDeps": true,
+  "noNewCommit": true
+}

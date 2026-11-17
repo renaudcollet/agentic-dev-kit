@@ -41,7 +41,7 @@ Les skills manuelles ne se déclenchent jamais seules.
 ### Sous-agents : contexte séparé, ne renvoient qu'une conclusion
 | Agent | Rôle | Modèle |
 |---|---|---|
-| `reviewer` | relecture indépendante en lecture seule sur tous les axes avant commit ou PR, avec un message de commit proposé | `opus` |
+| `reviewer` | relecture indépendante en lecture seule sur tous les axes avant commit ou PR, y compris les exigences affaiblies (contournements, tests désactivés, seuils abaissés), avec un message de commit proposé | `opus` |
 | `perf-profiler` | mesures dans le navigateur (traces, tas, fps, draw calls), recherche de fuites, diagnostic chiffré | `opus` |
 | `e2e-runner` | lance les tests e2e, diagnostique les échecs, garde les logs hors de la conversation | `sonnet` |
 
@@ -115,7 +115,7 @@ Si les noms d'outils du MCP Playwright diffèrent, ajuster la ligne `tools:` de 
 
 ## Évaluations
 
-`evals/` contient 13 tâches de référence sur un petit projet Nuxt (modale accessible, validation de formulaire, HTML non fiable, route d'upload, RLS Supabase, cycle de vie Three.js, animation GSAP, grande galerie, fonction utilitaire, découpage de commits, test e2e, exception documentée, pages d'établissement local). Chaque essai est vérifié par des scripts, noté selon une grille oui/non par un agent séparé, et quelques points restent à contrôler à l'œil. Voir [evals/README.md](evals/README.md).
+`evals/` contient 14 tâches de référence sur un petit projet Nuxt (modale accessible, validation de formulaire, HTML non fiable, route d'upload, RLS Supabase, cycle de vie Three.js, animation GSAP, grande galerie, fonction utilitaire, découpage de commits, test e2e, exception documentée, pages d'établissement local, relecture d'exigences affaiblies). Chaque essai est vérifié par des scripts, noté selon une grille oui/non par un agent séparé, et quelques points restent à contrôler à l'œil. Voir [evals/README.md](evals/README.md).
 
 ```
 /run-evals            toutes les tâches, avec le kit

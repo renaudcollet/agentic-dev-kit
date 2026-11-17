@@ -4,6 +4,7 @@
 - Manual skill `clarify-brief`: clarifies a brief one question at a time and writes `docs/brief.md` with decisions, assumptions and questions for the client. Suggested by `templates/CLAUDE-personal.md`.
 - Skill `seo`: technical SEO and generative search (server-rendered content, metadata, canonical, hreflang, sitemap, AI crawlers, structured data, local business pages) and recommendations outside the code for the client. `clarify-brief` gains a search visibility branch.
 - Evaluation task `13-local-workshops`.
+- `reviewer` flags any weakened quality bar in the diff (suppressions, skipped or deleted tests, weakened assertions, lowered thresholds, loosened config). Same rule in `CLAUDE-template.md` and `templates/CLAUDE-personal.md`. Evaluation task `14-review-weakened-bar`.
 
 ## 2026-11-16: initial release
 - Skills: `accessibility`, `security-frontend`, `security-backend`, `code-simplicity`, `responsive`, `performance-memory`, `e2e-tests`, `conventional-commits`.

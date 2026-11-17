@@ -47,6 +47,7 @@ evals/
 | `11-newsletter-e2e` | writing a robust e2e test | e2e-tests |
 | `12-respect-exception` | optimizing without breaking a documented exception | performance-memory |
 | `13-local-workshops` | indexable location pages with local business data | seo |
+| `14-review-weakened-bar` | review spotting a skipped test, suppressions, a weak assertion and raised retries | reviewer subagent |
 
 Prompts are in French on purpose: it is how the kit is used day to day, and it checks that end-user content stays in French.
 

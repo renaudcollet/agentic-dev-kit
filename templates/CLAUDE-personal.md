@@ -15,5 +15,8 @@
 ## Up-to-date documentation
 - When a specific library API, config format or tool version matters, check the current documentation (Context7 if available) instead of relying on memory.
 
+## Checks
+- Never make a check pass by weakening it (suppression, skipped or deleted test, weakened assertion, lowered threshold, loosened config): fix the cause, or stop and explain.
+
 ## Commits
 - Commit messages follow Conventional Commits, in English. Never commit without my approval.

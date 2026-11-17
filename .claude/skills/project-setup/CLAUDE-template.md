@@ -26,7 +26,7 @@
 
 ## Working rules
 - A task is only done when lint, typecheck and unit tests pass. Run them before concluding.
-- Do not weaken the TypeScript config; do not add `any`, `@ts-ignore` or `eslint-disable` without flagging it and justifying it in a comment.
+- Never make a check pass by weakening it: no `any`, `@ts-ignore` or `eslint-disable` without flagging it and justifying it in a comment; never skip or delete a test, weaken an assertion, lower a threshold or loosen a config to get to green. Fix the cause, or stop and explain why you cannot.
 - New business logic or utility functions come with unit tests.
 - Any user journey created or changed is covered by an e2e test (`e2e-tests` skill).
 - Do not add a dependency without saying so.

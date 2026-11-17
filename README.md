@@ -41,7 +41,7 @@ Manual skills never trigger on their own.
 ### Subagents: separate context, return only a conclusion
 | Agent | Role | Model |
 |---|---|---|
-| `reviewer` | independent read-only review on every axis before a commit or PR, with a proposed commit message | `opus` |
+| `reviewer` | independent read-only review on every axis before a commit or PR, including any weakened quality bar (suppressions, skipped tests, lowered thresholds), with a proposed commit message | `opus` |
 | `perf-profiler` | in-browser measurements (traces, heap, fps, draw calls), leak hunting, quantified diagnosis | `opus` |
 | `e2e-runner` | runs e2e tests, diagnoses failures, keeps logs out of the conversation | `sonnet` |
 
@@ -115,7 +115,7 @@ If the Playwright MCP tool names differ, adjust the `tools:` line in `.claude/ag
 
 ## Evaluations
 
-`evals/` holds 13 reference tasks on a small Nuxt project (accessible modal, form validation, untrusted HTML, upload route, Supabase RLS, Three.js lifecycle, GSAP animation, large gallery, utility function, commit split, e2e test, documented exception, local business pages). Each run is checked by scripts, graded against a yes/no rubric by a separate agent, and a few items are left for a human check. See [evals/README.md](evals/README.md).
+`evals/` holds 14 reference tasks on a small Nuxt project (accessible modal, form validation, untrusted HTML, upload route, Supabase RLS, Three.js lifecycle, GSAP animation, large gallery, utility function, commit split, e2e test, documented exception, local business pages, review of a weakened quality bar). Each run is checked by scripts, graded against a yes/no rubric by a separate agent, and a few items are left for a human check. See [evals/README.md](evals/README.md).
 
 ```
 /run-evals            all tasks, with the kit
