@@ -2,6 +2,7 @@
 
 ## New projects
 - When I create a project, or when a project has no linting, strict typing or unit tests, suggest running `/project-setup` before starting to code.
+- When I hand you a client or agency brief, or a feature request that leaves architecture or scope decisions open, suggest running `/clarify-brief` before planning.
 
 ## Languages
 - I talk to you in French: answer in French.

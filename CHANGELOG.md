@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Manual skill `clarify-brief`: clarifies a brief one question at a time and writes `docs/brief.md` with decisions, assumptions and questions for the client. Suggested by `templates/CLAUDE-personal.md`.
+
 ## 2026-11-16: initial release
 - Skills: `accessibility`, `security-frontend`, `security-backend`, `code-simplicity`, `responsive`, `performance-memory`, `e2e-tests`, `conventional-commits`.
 - Manual skill: `project-setup` with `CLAUDE-template.md`.
