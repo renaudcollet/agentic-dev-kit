@@ -1,0 +1,36 @@
+{
+  "id": "13-local-workshops",
+  "title": "Local workshop pages",
+  "skills": [
+    "seo"
+  ],
+  "prompt": "Le studio ouvre deux ateliers. Ajoute une page /ateliers qui les présente, et une page par atelier (/ateliers/lyon et /ateliers/nantes) avec l'adresse, le téléphone et les horaires de chacun.\n\nLyon : 12 rue Mercière, 69002 Lyon, 04 72 00 00 01, du mardi au samedi de 10 h à 18 h.\nNantes : 5 quai de la Fosse, 44000 Nantes, 02 40 00 00 02, du lundi au vendredi de 9 h à 17 h.",
+  "commands": [
+    {
+      "name": "lint (changed files)",
+      "run": "npx eslint",
+      "changedFiles": "\\.(vue|ts|mts|mjs|js)$"
+    },
+    {
+      "name": "typecheck",
+      "run": "npm run typecheck"
+    }
+  ],
+  "grep": [
+    {
+      "id": "json-ld",
+      "desc": "Adds JSON-LD structured data",
+      "path": "\\.(vue|ts)$",
+      "must": "ld\\+json|useSchemaOrg|defineLocalBusiness"
+    },
+    {
+      "id": "meta-description",
+      "desc": "Sets a meta description",
+      "path": "\\.(vue|ts)$",
+      "must": "description"
+    }
+  ],
+  "e2e": "eval.spec.ts",
+  "noNewDeps": true,
+  "noNewCommit": true
+}

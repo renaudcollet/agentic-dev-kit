@@ -25,6 +25,7 @@ Il ne contient **pas** les fichiers de configuration d'outils (ESLint, tsconfig,
 | `responsive` | écrit du CSS ou de la mise en page |
 | `performance-memory` | écrit une scène WebGL, une animation GSAP, du Canvas, Phaser ou WebAR, une liste longue, un chargement d'assets |
 | `e2e-tests` | crée ou modifie un parcours utilisateur, écrit un test e2e, configure la CI des tests |
+| `seo` | crée une page ou une route publique, règle les métadonnées ou le mode de rendu, construit des pages d'établissement ou un store locator |
 | `conventional-commits` | rédige un message de commit, découpe des changements en commits, nomme une branche |
 
 Les skills n'ont pas de modèle imposé : elles utilisent celui de la session.
@@ -114,7 +115,7 @@ Si les noms d'outils du MCP Playwright diffèrent, ajuster la ligne `tools:` de 
 
 ## Évaluations
 
-`evals/` contient 12 tâches de référence sur un petit projet Nuxt (modale accessible, validation de formulaire, HTML non fiable, route d'upload, RLS Supabase, cycle de vie Three.js, animation GSAP, grande galerie, fonction utilitaire, découpage de commits, test e2e, exception documentée). Chaque essai est vérifié par des scripts, noté selon une grille oui/non par un agent séparé, et quelques points restent à contrôler à l'œil. Voir [evals/README.md](evals/README.md).
+`evals/` contient 13 tâches de référence sur un petit projet Nuxt (modale accessible, validation de formulaire, HTML non fiable, route d'upload, RLS Supabase, cycle de vie Three.js, animation GSAP, grande galerie, fonction utilitaire, découpage de commits, test e2e, exception documentée, pages d'établissement local). Chaque essai est vérifié par des scripts, noté selon une grille oui/non par un agent séparé, et quelques points restent à contrôler à l'œil. Voir [evals/README.md](evals/README.md).
 
 ```
 /run-evals            toutes les tâches, avec le kit

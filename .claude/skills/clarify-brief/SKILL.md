@@ -26,6 +26,7 @@ Go through these branches and keep only those that are unresolved and matter for
 - **Languages**: content languages, i18n, right-to-left.
 - **Technical constraints**: imposed stack, hosting, CMS or back office, third-party services and their accounts (WebAR platform, analytics, CRM, payment), domain, who owns the accounts.
 - **Data and legal**: personal data collected, consent and cookies (GDPR), game rules or contest terms, age restrictions.
+- **Search visibility**: should the site be found in search engines and AI assistants, or stay out (kiosk, campaign behind a QR code)? Target queries and areas, old URLs to redirect on a redesign, Google Business Profile and official name, address, phone and hours for each location, policy for AI crawlers, who writes and updates the content (see the `seo` skill).
 - **Quality targets**: accessibility level (RGAA / WCAG AA or a stated exception, see the `accessibility` skill), performance budget and target devices (see `performance-memory`), supported screen sizes (see `responsive`).
 - **Installation or event** (DOOH, phygital): hardware, screen resolution and orientation, sensors, kiosk mode, recovery after a crash or power cut, on-site support.
 - **Delivery**: milestones, deadline and what it depends on, review rounds, acceptance criteria, deliverables (source code, repository access, documentation), maintenance after launch.

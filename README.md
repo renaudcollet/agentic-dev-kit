@@ -25,6 +25,7 @@ It does **not** hold tool configuration files (ESLint, tsconfig, CI workflows): 
 | `responsive` | writes CSS or layout |
 | `performance-memory` | writes a WebGL scene, a GSAP animation, Canvas, Phaser or WebAR code, a long list, asset loading |
 | `e2e-tests` | creates or edits a user journey, writes an e2e test, configures test CI |
+| `seo` | creates a public page or route, sets metadata or the rendering mode, builds location pages or a store locator |
 | `conventional-commits` | writes a commit message, splits changes into commits, names a branch |
 
 Skills have no fixed model: they use the session's model.
@@ -114,7 +115,7 @@ If the Playwright MCP tool names differ, adjust the `tools:` line in `.claude/ag
 
 ## Evaluations
 
-`evals/` holds 12 reference tasks on a small Nuxt project (accessible modal, form validation, untrusted HTML, upload route, Supabase RLS, Three.js lifecycle, GSAP animation, large gallery, utility function, commit split, e2e test, documented exception). Each run is checked by scripts, graded against a yes/no rubric by a separate agent, and a few items are left for a human check. See [evals/README.md](evals/README.md).
+`evals/` holds 13 reference tasks on a small Nuxt project (accessible modal, form validation, untrusted HTML, upload route, Supabase RLS, Three.js lifecycle, GSAP animation, large gallery, utility function, commit split, e2e test, documented exception, local business pages). Each run is checked by scripts, graded against a yes/no rubric by a separate agent, and a few items are left for a human check. See [evals/README.md](evals/README.md).
 
 ```
 /run-evals            all tasks, with the kit
