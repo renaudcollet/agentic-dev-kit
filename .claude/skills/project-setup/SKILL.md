@@ -24,7 +24,8 @@ Ask with AskUserQuestion if available, otherwise in text:
    - content language(s) of the site or app, i.e. everything the end user sees or hears (UI text, `alt`, `aria-label`, error messages, SEO metadata, emails). If several languages: is an i18n setup expected (for example `@nuxtjs/i18n`)? Do not install it unless asked;
    - language of code comments and documentation (English by default, unless the agency or client imposes another).
    Code identifiers and commit messages stay in English unless the repository's conventions say otherwise.
-6. **Agency or client repository**: are there imposed conventions to follow? If so, they take priority.
+6. **Performance budgets** (recommended for long-lived projects and anything with 3D): asset budget, JS bundle budget, 3D leak test, Lighthouse CI as a warning (see "Regression guards" in the `performance-memory` skill). For a short campaign, usually not worth it. Thresholds for the asset budget: textures 2048 or 1024 (mobile, WebAR), USDZ required or not.
+7. **Agency or client repository**: are there imposed conventions to follow? If so, they take priority.
 Do not ask a question whose answer is obvious from the project.
 
 ## 3. Linting and formatting
@@ -57,6 +58,7 @@ File `.github/workflows/ci.yml`:
 - `permissions: contents: read`, actions pinned to a major version, `concurrency` to cancel outdated runs on the same branch.
 - Node version read from `.nvmrc` or `engines` (create `.nvmrc` if missing).
 - Laravel: PHP job with `composer install`, Pint in test mode, PHPStan, Pest.
+- Performance budgets, if approved: after the build, `node scripts/check-assets.mjs` and Size Limit (blocking); the leak test runs with the e2e tests; Lighthouse CI in a separate job that never blocks the merge.
 
 ## 7. Git hooks (if approved)
 - Husky + lint-staged: lint and format staged files only. Typecheck and tests stay in CI to keep commits fast.

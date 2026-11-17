@@ -11,7 +11,7 @@ If the project already uses another tool (Cypress...) or other conventions, foll
 - After creating or changing a **critical journey**: authentication, sign-up, checkout or ordering, contact or application form, payment, core product feature.
 - For every bug fixed on a journey: a test that reproduces it.
 - Do not test in e2e what a unit test covers better (calculations, formatting, isolated logic). E2E checks that a user can complete a journey.
-- 3D, canvas or WebAR experiences: test the shell (loading, no console errors, HTML controls, fallback screen when WebGL or the camera is unavailable), not the rendering itself.
+- 3D, canvas or WebAR experiences: test the shell (loading, no console errors, HTML controls, fallback screen when WebGL or the camera is unavailable), not the rendering itself. Memory is the exception: a leak test checks that `renderer.info.memory` returns to its initial values after repeated opening and closing (see "Regression guards" in the `performance-memory` skill).
 
 ## Structure
 - One file per journey or feature in `tests/e2e/` (or the existing folder).

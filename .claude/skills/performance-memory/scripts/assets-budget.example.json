@@ -1,0 +1,21 @@
+{
+  "paths": ["public"],
+  "glb": {
+    "maxTextureSize": 2048,
+    "requireKtx2": true,
+    "requireMeshCompression": true,
+    "maxDrawCalls": 100,
+    "requireUsdz": false
+  },
+  "maxKB": {
+    ".glb": 5000,
+    ".usdz": 8000,
+    ".ktx2": 2000,
+    ".jpg": 400,
+    ".png": 400,
+    ".webp": 300,
+    ".avif": 250,
+    ".mp4": 8000,
+    ".webm": 8000
+  }
+}

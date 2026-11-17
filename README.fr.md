@@ -34,7 +34,7 @@ Les skills n'ont pas de modèle imposé : elles utilisent celui de la session.
 | Skill | Rôle |
 |---|---|
 | `clarify-brief` | `/clarify-brief` : transforme un brief client ou agence en brief clarifié avant de coder. Pose une question à la fois avec une réponse recommandée, sépare les décisions du développeur des questions pour le client, écrit `docs/brief.md` (décisions, hypothèses, questions client prêtes à envoyer, hors périmètre, risques). |
-| `project-setup` | `/project-setup` : lint, formatage, TypeScript strict, tests unitaires, CI GitHub Actions, vérifications avant commit et des messages de commit (sur demande), `CLAUDE.md` du projet à partir de `CLAUDE-template.md`. |
+| `project-setup` | `/project-setup` : lint, formatage, TypeScript strict, tests unitaires, CI GitHub Actions, budgets de performance (sur demande), vérifications avant commit et des messages de commit (sur demande), `CLAUDE.md` du projet à partir de `CLAUDE-template.md`. |
 
 Les skills manuelles ne se déclenchent jamais seules.
 

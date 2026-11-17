@@ -54,6 +54,16 @@ Default rules, whether the animation is CSS, GSAP or vanilla JS (deviations poss
 - No allocation in the render loop: reuse `Vector3`, `Matrix4`, `Quaternion` declared once.
 - On-demand rendering (`render` only when something changes) for static scenes or interactive ones without continuous animation.
 
+## 3D assets (GLB)
+Checked by hand when a model is added, and automatically when the project has budgets (see "Regression guards").
+- **One GLB per model**, not a `.gltf` with separate files.
+- **Textures in KTX2** (`KHR_texture_basisu`): ETC1S for color, roughness and occlusion maps; UASTC for normal maps (ETC1S leaves visible artifacts on them). `KTX2Loader` on the Three.js side.
+- **Texture size**: 2048 max, 1024 on mobile and in WebAR. Use multiples of 4, and powers of two when mipmaps matter.
+- **Geometry compressed** with Draco or Meshopt (Meshopt decodes faster; Draco often gives smaller files).
+- **Draw calls**: static meshes sharing a material merged (`gltf-transform join`), repeated objects instanced (`gltf-transform instance` or `InstancedMesh`), materials and textures shared (atlases).
+- **iOS AR Quick Look** (`<model-viewer ios-src>`): a `.usdz` next to each GLB, exported from the same source. USDZ is Apple's format, not a compression of the GLB.
+- Typical pipeline: `gltf-transform optimize` with the texture and compression options of the current documentation, then check the result in a viewer.
+
 ## GSAP
 - In a component: `gsap.context()` or `gsap.matchMedia()` created on mount, `ctx.revert()` on unmount. This kills the tweens, timelines and ScrollTriggers created inside.
 - ScrollTrigger: `ScrollTrigger.refresh()` after images load or the layout changes, and never an orphan ScrollTrigger after navigation.
@@ -96,6 +106,14 @@ Default rules, whether the animation is CSS, GSAP or vanilla JS (deviations poss
 - Draw calls: under 100 on mobile.
 - Texture GPU memory: a few hundred MB at most on mobile.
 - JS heap stable after several round trips to the same page (no continuous growth).
+
+## Regression guards
+For long-lived projects and anything with 3D, when `project-setup` sets up performance budgets:
+- **Asset budget** (blocking): copy `scripts/check-assets.mjs` from this skill into the project's `scripts/`, with an `assets-budget.json` at the root based on `scripts/assets-budget.example.json`. It checks file sizes per extension and, for each GLB, KTX2 textures, texture size, geometry compression, draw calls, meshes that could be merged and the USDZ counterpart. No dependency.
+- **JS bundle budget** (blocking): Size Limit on the built entry chunks.
+- **Leak test** (blocking, Playwright): in test mode only, expose `renderer.info.memory` (for example on `window.__three` when a test flag is set, never in production). The test records geometries and textures, opens and leaves the 3D page or component ten times, then checks both counts are back to their initial values.
+- **Lighthouse CI** on three to five key pages (warning only): timing metrics vary between CI runs, and Lighthouse sees neither frame rate nor GPU memory.
+Raising a budget is a decision: say why in the commit, never to get to green.
 
 ## Detecting a leak
 1. Open the page, take a heap snapshot (DevTools > Memory).

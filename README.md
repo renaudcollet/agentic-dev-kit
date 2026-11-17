@@ -34,7 +34,7 @@ Skills have no fixed model: they use the session's model.
 | Skill | Role |
 |---|---|
 | `clarify-brief` | `/clarify-brief`: turns a client or agency brief into a clarified brief before coding. Asks one question at a time with a recommended answer, separates the developer's decisions from questions for the client, writes `docs/brief.md` (decisions, assumptions, client questions ready to send, out of scope, risks). |
-| `project-setup` | `/project-setup`: linting, formatting, strict TypeScript, unit tests, GitHub Actions CI, pre-commit and commit message checks (on request), project `CLAUDE.md` from `CLAUDE-template.md`. |
+| `project-setup` | `/project-setup`: linting, formatting, strict TypeScript, unit tests, GitHub Actions CI, performance budgets (on request), pre-commit and commit message checks (on request), project `CLAUDE.md` from `CLAUDE-template.md`. |
 
 Manual skills never trigger on their own.
 

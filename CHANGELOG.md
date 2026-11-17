@@ -6,6 +6,7 @@
 - Evaluation task `13-local-workshops`.
 - `reviewer` flags any weakened quality bar in the diff (suppressions, skipped or deleted tests, weakened assertions, lowered thresholds, loosened config). Same rule in `CLAUDE-template.md` and `templates/CLAUDE-personal.md`. Evaluation task `14-review-weakened-bar`.
 - `security-backend`: SSRF, AI and LLM features, dependency supply chain, personal data (GDPR).
+- `performance-memory`: 3D asset rules (KTX2 with ETC1S or UASTC, texture size, Draco or Meshopt, merged meshes, USDZ for iOS AR Quick Look) and regression guards: dependency-free `scripts/check-assets.mjs` with `assets-budget.example.json`, Size Limit, 3D leak test, Lighthouse CI as a warning. `project-setup` asks about performance budgets; `e2e-tests` points to the leak test.
 - `reviewer`: correctness axis (does what was asked, edge cases, tests that really test), reads the tests first.
 
 ## 2026-11-16: initial release
